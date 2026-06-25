@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Lender</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 620px;
+      color: #fff;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #e94560;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { font-size: 0.82rem; color: #ccc; display: block; margin-bottom: 4px; }
+    select, input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    select option { background: #1a1a2e; }
+    .full { grid-column: span 2; }
+    button {
+      grid-column: span 2;
+      padding: 13px;
+      background: #e94560;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    button:hover { background: #c73652; }
+    .result {
+      margin-top: 22px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .approved { background: rgba(0,200,100,0.2); border: 1px solid #00c864; color: #00e676; }
+    .rejected { background: rgba(255,60,60,0.2); border: 1px solid #ff3c3c; color: #ff5252; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>💳 Smart Lender</h1>
+  <p class="subtitle">ML-Powered Loan Approval Prediction</p>
+
+  <form action="/predict" method="POST">
+    <div class="grid">
+
+      <div>
+        <label>Gender</label>
+        <select name="Gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Married</label>
+        <select name="Married">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Dependents</label>
+        <select name="Dependents">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3+">3+</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Education</label>
+        <select name="Education">
+          <option value="Graduate">Graduate</option>
+          <option value="Not Graduate">Not Graduate</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Self Employed</label>
+        <select name="Self_Employed">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Property Area</label>
+        <select name="Property_Area">
+          <option value="Urban">Urban</option>
+          <option value="Rural">Rural</option>
+          <option value="Semiurban">Semiurban</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Applicant Income (₹)</label>
+        <input type="number" name="ApplicantIncome" placeholder="e.g. 5000" required/>
+      </div>
+
+      <div>
+        <label>Coapplicant Income (₹)</label>
+        <input type="number" name="CoapplicantIncome" placeholder="e.g. 1500" required/>
+      </div>
+
+      <div>
+        <label>Loan Amount (₹ thousands)</label>
+        <input type="number" name="LoanAmount" placeholder="e.g. 128" required/>
+      </div>
+
+      <div>
+        <label>Loan Amount Term (months)</label>
+        <input type="number" name="Loan_Amount_Term" placeholder="e.g. 360" required/>
+      </div>
+
+      <div class="full">
+        <label>Credit History</label>
+        <select name="Credit_History">
+          <option value="1">Good (1)</option>
+          <option value="0">Bad (0)</option>
+        </select>
+      </div>
+
+      <button type="submit">🔍 Predict Loan Approval</button>
+    </div>
+  </form>
+
+  {% if result %}
+  <div class="result {{ 'approved' if 'Approved' in result else 'rejected' }}">
+    {{ result }}
+  </div>
+  {% endif %}
+</div>
+</body>
+</html>
