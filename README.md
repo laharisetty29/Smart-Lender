@@ -2,6 +2,20 @@
 
 ## AI-Powered Loan Approval Prediction System
 
+## Team Details
+
+- **Team Size:** 5
+- **Team Leader:** Lahari Gadamsetty
+
+### Team Members
+
+- Uppara Anusha
+- Praneetha Bandi
+- Juturu Vyshnavi
+- Sathvika Godena
+
+## Project Overview
+
 Smart Lender is a Machine Learning-based web application that helps banks and financial institutions make data-driven loan approval decisions. The system analyzes applicant information such as income, employment status, education, credit history, loan amount, and property area to predict whether a loan application is likely to be approved.
 
 The application uses multiple machine learning algorithms and selects the best-performing model for real-time loan eligibility prediction through an interactive Flask web interface.
