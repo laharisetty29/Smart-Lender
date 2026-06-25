@@ -22,21 +22,14 @@ The application uses multiple machine learning algorithms and selects the best-p
 
 ## Features
 
-✅ Loan Approval Prediction
-
-✅ User-Friendly Web Interface
-
-✅ Real-Time Predictions
-
-✅ Multiple ML Model Comparison
-
-✅ Feature Importance Analysis
-
-✅ Data Visualization Dashboard
-
-✅ Flask-Based Deployment
-
-✅ Pre-trained Model Integration
+- Loan Approval Prediction
+- User-Friendly Web Interface
+- Real-Time Predictions
+- Multiple ML Model Comparison
+- Feature Importance Analysis
+- Data Visualization Dashboard
+- Flask-Based Deployment
+- Pre-trained Model Integration
 
 ---
 
@@ -358,4 +351,4 @@ https://www.linkedin.com/in/laharigadamsetty
 
 This project is developed for educational and learning purposes.
 
-© 2026 Gadamsetty Lahari
+© 2026 Lahari Gadamsetty
